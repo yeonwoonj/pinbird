@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>@PinBird - Twitter - follow hashtag stream made easy.</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="@PinBird is a simple way to read hashtag stream for twitter."/>
+<meta name="keywords" content="twitter, hashtag, tweet, search, stream, follow hashtag, pinbird"/>
+<link rel="stylesheet" type="text/css" href="site.css?201103070213">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
+<script type="text/javascript" src="site.min.js?201103070213"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-10086170-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body onload="onloadz();">
+ <div id="header">
+  <h1 id="name"><a href="?" title="핀버드 - 트위터 검색 결과를 한눈에!">@PinBird</a> <span class="version" title="alpha test version.">(알파버전)</span></h1>
+  <div id="feedback"><a href="#" onclick="UserVoice.Popin.show(uservoiceOptions); return false;" title="의견이나 제안을 남겨주세요. ;-)">FEEDBACK</a></div>
+  <hr />
+  <div id="msgs"></div>
+ </div>
+ <div id="view">
+  <div id="stream">
+  </div>
+  <div id="form" class="shadow">
+   <div>
+    <div class="head">새 글타래 열기</div>
+    <input id="keyword" type="search" placeholder="#gdc 또는 @waan26" size="20" />
+   </div>
+   <div id="bundle">
+    <div class="head">묶음 열기</div>
+    <ul>
+     <li id="bundle_loading">로딩 중…</li>
+     <li><hr id="seps" />
+     </li>
+     <li>
+      또는 <a id="bundle_create" class="bold" href="#">새 묶음 만들기</a>
+     </li>
+     <li>
+      또는 <a class="bold" href="?">모두 닫기</a>
+     </li>
+    </ul>
+  </div>
+  </div>
+ </div> 
+ <div id="footer">
+  <hr />
+  <div>@PinBird is a simple way to read hashtag stream for twitter.<br />@PinBird is developed by <a href="http://twitter.com/waan26">@waan26</a> and I'm still working. ;-p</div>
+  <!--div style="color:green;margin-top:5px;">*** 의견이나 버그 신고는 트위터(twitter)에서 <a href="http://twitter.com/?status=%20%23pinbird">#pinbird</a> 또는 멘션(<a href="http://twitter.com/?status=%40pinbird%20">@pinbird<a>) 주세요! ***</div-->
+  <!--div style="margin-top:5px;"><a href="#" onclick="UserVoice.Popin.show(uservoiceOptions); return false;">*** Feedback: 의견이나 제안을 남겨 주세요. ***</a></div-->
+ </div>
+ <div id="modal_popup">
+  <h1>현재 화면을 묶음으로 저장합니다.</h1>
+  <div id="bundle_edit"><input id="bdname2" type="search" placeholder="묶음의 이름을 지어주세요." />
+  </div>
+ </div>
+ <div id="modal_bg">
+ </div>
+<!-- uservoice -->
+<script type="text/javascript">
+  var uservoiceOptions = {
+    key: 'pinbird',
+    host: 'pinbird.uservoice.com', 
+    forum: '105751',
+    lang: 'en',
+    showTab: false
+  };
+  function _loadUserVoice() {
+    var s = document.createElement('script');
+    s.src = ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js";
+    document.getElementsByTagName('head')[0].appendChild(s);
+  }
+  _loadSuper = window.onload;
+  window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
+</script>
+<!-- //uservoice -->
+</body>
+</html>
