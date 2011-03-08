@@ -1,14 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<title>@PinBird - Twitter - follow hashtag stream made easy.</title>
+<title>@PinBird - Twitter - follow hashtag streams made easy.</title>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="description" content="@PinBird is a simple way to read hashtag stream for twitter."/>
 <meta name="keywords" content="twitter, hashtag, tweet, search, stream, follow hashtag, pinbird"/>
-<link rel="stylesheet" type="text/css" href="site.css?201103070213">
+<link rel="stylesheet" type="text/css" href="site.css?201103090837">
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
-<script type="text/javascript" src="site.min.js?201103070213"></script>
+<script type="text/javascript" src="site.min.js?201103090837"></script>
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-10086170-5']);
@@ -23,7 +23,7 @@
 </head>
 <body onload="onloadz();">
  <div id="header">
-  <h1 id="name"><a href="?" title="핀버드 - 트위터 검색 결과를 한눈에!">@PinBird</a> <span class="version" title="alpha test version.">(알파버전)</span></h1>
+  <h1 id="name"><a href="" title="핀버드 - 트위터 검색 결과를 한눈에!">@PinBird</a> <span class="version" title="alpha test version.">(알파버전)</span></h1>
   <div id="feedback"><a href="#" onclick="UserVoice.Popin.show(uservoiceOptions); return false;" title="의견이나 제안을 남겨주세요. ;-)">FEEDBACK</a></div>
   <hr />
   <div id="msgs"></div>
@@ -46,7 +46,7 @@
       또는 <a id="bundle_create" class="bold" href="#">새 묶음 만들기</a>
      </li>
      <li>
-      또는 <a class="bold" href="?">모두 닫기</a>
+      또는 <a class="bold" href="#" onclick="removePaneAll();">모두 닫기</a>
      </li>
     </ul>
   </div>

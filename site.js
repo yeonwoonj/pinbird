@@ -323,7 +323,7 @@ function favCreate(id) {
 }
 
 
-function loadBundle(bdname) {
+function loadBundle(bdname, rpp) {
  removePaneAll();
 
  $.getJSON(kBUNDLE_REPO + '/get/' + encodeURIComponent(bdname) + '?callback=?', function(JSON) {
@@ -334,12 +334,23 @@ function loadBundle(bdname) {
   }
 
   for (var idx = 0; idx < JSON.keywords.length; idx++) {
-   addPane(JSON.keywords[idx]);
+   addPane(JSON.keywords[idx], rpp);
   }
  });
 }
 
-function parseBundle(href) {
+function parseBundleHash(href) {
+ var anchorPos = href.indexOf('#');
+ if (anchorPos == -1) {
+  return '';
+ }
+
+ var bdname = href.substr(anchorPos + 1);
+
+ return decodeURIComponent(bdname);
+}
+
+function parseBundleURL(href) {
  // remove anchor part if it exists
  var anchorPos = href.indexOf('#');
  if (anchorPos != -1) {
@@ -402,7 +413,7 @@ function onloadz()
   if (e.keyCode == 13) {
    var bdname = this.value;
    var bdnameEncoded = encodeURIComponent(this.value);
-   var bd_url = kURL + '?bundle=' + bdname;
+   var bd_url = kURL + '#' + bdname;
    this.value = '';
 
    var keywords = [];
@@ -437,15 +448,19 @@ function onloadz()
    var name = JSON[idx].name;
    var onclick = (function(bdname) { return function() { loadBundle(bdname); } })(name);
 
-   var li = $('<li />').html('<a href="?bundle=' + name + '"># ' + name + '</a>');//.click(onclick);
+   var li = $('<li />').html('<a href="#' + name + '"># ' + name + '</a>').click(onclick);
 
    $('#bundle #seps').closest('li').before(li);
   }
  });
 
- var bdname = parseBundle(document.location.href);
+ var bdname = parseBundleHash(document.location.href);
  if (bdname.length) {
   loadBundle(bdname);
+ }
+ else {
+  var rpp = 5; // default rpp는 낮게
+  loadBundle('GDC 2011', rpp);
  }
  
 }
